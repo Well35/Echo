@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://cqnj3bx1nrpms"]
+
+[ext_resource type="Script" path="res://scripts/button.gd" id="1_nwu87"]
+
+[node name="Button" type="Button"]
+offset_right = 8.0
+offset_bottom = 8.0
+script = ExtResource("1_nwu87")

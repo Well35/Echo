@@ -1,0 +1,27 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtxi30wrd588k"]
+
+[ext_resource type="Script" path="res://scripts/input_pin.gd" id="1_61r1c"]
+[ext_resource type="Texture2D" uid="uid://d1h02edgiola6" path="res://assets/input_pin.png" id="1_c48x3"]
+[ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="3_26ygp"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4fg3"]
+size = Vector2(42, 40)
+
+[node name="InputPin" type="StaticBody2D"]
+script = ExtResource("1_61r1c")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(2.625, 2.5)
+texture = ExtResource("1_c48x3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_o4fg3")
+
+[node name="Button" parent="." instance=ExtResource("3_26ygp")]
+offset_left = -7.0
+offset_top = -7.0
+offset_right = 7.0
+offset_bottom = 7.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="pressed" from="Button" to="." method="_on_button_pressed"]
