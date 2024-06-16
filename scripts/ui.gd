@@ -5,6 +5,10 @@ var and_gate_scene = preload("res://scenes/and_gate.tscn")
 var nand_gate_scene = preload("res://scenes/nand_gate.tscn")
 var or_gate_scene = preload("res://scenes/or_gate.tscn")
 var nor_gate_scene = preload("res://scenes/nor_gate.tscn")
+var xor_gate_scene = preload("res://scenes/xor_gate.tscn")
+var xnor_gate_scene = preload("res://scenes/xnor_gate.tscn")
+var not_gate_scene = preload("res://scenes/not_gate.tscn")
+
 
 signal eval
 
@@ -38,7 +42,7 @@ func _on_nand_gate_button_pressed():
 
 
 func _on_xor_gate_button_pressed():
-	pass # Replace with function body.
+	create_gate(xor_gate_scene)
 
 
 func _on_xnor_gate_button_pressed():

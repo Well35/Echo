@@ -1,0 +1,48 @@
+[gd_scene load_steps=5 format=3 uid="uid://d1b7jg5kblqan"]
+
+[ext_resource type="Script" path="res://scripts/xor_gate.gd" id="1_66onx"]
+[ext_resource type="Texture2D" uid="uid://b57kqrxeuknrf" path="res://assets/xor_gate.png" id="2_psyia"]
+[ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_r17nf"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_missf"]
+size = Vector2(60, 22)
+
+[node name="XorGate" type="StaticBody2D"]
+script = ExtResource("1_66onx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.875, 1.375)
+texture = ExtResource("2_psyia")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_missf")
+
+[node name="Output" type="Node2D" parent="."]
+
+[node name="OutputButton" parent="Output" instance=ExtResource("2_r17nf")]
+offset_left = 20.0
+offset_top = -4.0
+offset_right = 28.0
+offset_bottom = 4.0
+metadata/_edit_use_anchors_ = true
+
+[node name="Input" type="Node2D" parent="."]
+
+[node name="InputButton1" parent="Input" instance=ExtResource("2_r17nf")]
+offset_left = -28.0
+offset_top = -10.0
+offset_right = -20.0
+offset_bottom = -2.0
+metadata/_edit_use_anchors_ = true
+
+[node name="InputButton2" parent="Input" instance=ExtResource("2_r17nf")]
+offset_left = -28.0
+offset_top = 1.0
+offset_right = -20.0
+offset_bottom = 9.0
+metadata/_edit_use_anchors_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]
+[connection signal="pressed" from="Input/InputButton1" to="." method="_on_input_button_1_pressed"]
+[connection signal="pressed" from="Input/InputButton2" to="." method="_on_input_button_2_pressed"]
