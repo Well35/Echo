@@ -13,13 +13,15 @@ var has_both_inputs: bool = false
 var is_not_gate: bool = false
 @onready var output_button = $Output/OutputButton
 @onready var input_button1 = $Input/InputButton1
-@onready var input_button2 = $Input/InputButton2
+var input_button2
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("interact"):
 		selected = true
 
 func _ready():
+	if not is_not_gate:
+		input_button2 = $Input/InputButton2
 	input_pickable = true
 
 func _process(delta):
@@ -28,13 +30,14 @@ func _process(delta):
 	if Input.is_action_just_released("interact"):
 		selected = false
 
+#Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
 func button_pressed(b: Button, is_input_button: bool):
 	Globals.buttons_clicked += 1
 	if not b.has_wire and not is_input_button:
-		Globals.wire_start_pos = b.global_position
+		Globals.wire_start_pos = Vector2(b.global_position.x + b.rect_size.x / 2, b.global_position.y + b.rect_size.y / 2)
 		Globals.start_button = b
 	if not b.has_wire and is_input_button:
-		Globals.wire_end_pos = b.global_position
+		Globals.wire_end_pos = Vector2(b.global_position.x + b.rect_size.x / 2, b.global_position.y + b.rect_size.y / 2)
 		Globals.end_button = b
 
 func _on_output_button_pressed():

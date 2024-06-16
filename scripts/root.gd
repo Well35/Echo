@@ -64,7 +64,8 @@ func evaluate():
 		for gate in gates:
 			gate.evaluated = false
 			gate.input_button1.value_changed = false
-			gate.input_button2.value_changed = false
+			if not gate.is_not_gate:
+				gate.input_button2.value_changed = false
 			$OutputPin.output_button.value_changed = false
 		
 		# Get every permutation of the input pins being on/off
@@ -90,7 +91,10 @@ func evaluate():
 			
 			# Evaluate all gates with both inputs set
 			for gate in gates:
-				if gate.input_button1.value_changed and gate.input_button2.value_changed and not gate.evaluated:
+				if gate.is_not_gate and gate.input_button1.value_changed and not gate.evaluated:
+					gate.evaluate()
+					gate.evaluated = true
+				elif not gate.is_not_gate and gate.input_button1.value_changed and gate.input_button2.value_changed and not gate.evaluated:
 					gate.evaluate()
 					gate.evaluated = true
 		s += " " + str($OutputPin.output_button.value)

@@ -8,6 +8,6 @@ var end_button: Button
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
-	set_point_position(0, start_button.global_position)
+	set_point_position(0, Vector2(start_button.global_position))
 	set_point_position(1, end_button.global_position)
 	pass
