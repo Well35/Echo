@@ -1,6 +1,11 @@
 extends StaticBody2D
 
 var selected: bool = false
+var evaluated: bool = false
+var has_both_inputs: bool = false
+@onready var output_button = $Output/OutputButton
+@onready var input_button1 = $Input/InputButton1
+@onready var input_button2 = $Input/InputButton2
 
 signal button_clicked(pos)
 
@@ -14,7 +19,6 @@ func _ready():
 func _process(delta):
 	if selected:
 		position = get_global_mouse_position()
-	
 	if Input.is_action_just_released("interact"):
 		selected = false
 
@@ -36,3 +40,6 @@ func _on_input_button_2_pressed():
 	if not $Input/InputButton2.has_wire:
 		Globals.wire_end_pos = $Input/InputButton2.global_position
 		Globals.end_button = $Input/InputButton2
+
+func evaluate():
+	$Output/OutputButton.value = $Input/InputButton1.value and $Input/InputButton2

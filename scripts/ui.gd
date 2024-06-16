@@ -15,7 +15,8 @@ func _on_and_gate_button_pressed():
 func _on_input_node_button_pressed():
 	var input_pin = input_pin_scene.instantiate()
 	input_pin.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
-	get_parent().get_child(1).add_child(input_pin)
+	get_parent().get_child(2).add_child(input_pin)
+	Globals.input_pins += 1
 
 
 func _on_evaluate_button_pressed():

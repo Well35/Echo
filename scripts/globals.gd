@@ -6,3 +6,4 @@ var start_button
 var end_button
 
 var buttons_clicked: int
+var input_pins: int
