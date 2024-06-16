@@ -1,0 +1,45 @@
+[gd_scene load_steps=5 format=3 uid="uid://t4meku7mo7bu"]
+
+[ext_resource type="Script" path="res://scripts/or_gate.gd" id="1_n54w2"]
+[ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_4sp7i"]
+[ext_resource type="Texture2D" uid="uid://bqe752oi1o4s6" path="res://assets/or_gate.png" id="2_iw4a1"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_c7kns"]
+size = Vector2(60, 22)
+
+[node name="OrGate" type="StaticBody2D"]
+script = ExtResource("1_n54w2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(1.875, 1.375)
+texture = ExtResource("2_iw4a1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_c7kns")
+
+[node name="Output" type="Node2D" parent="."]
+
+[node name="OutputButton" parent="Output" instance=ExtResource("2_4sp7i")]
+offset_left = 20.0
+offset_top = -4.0
+offset_right = 28.0
+offset_bottom = 4.0
+
+[node name="Input" type="Node2D" parent="."]
+
+[node name="InputButton1" parent="Input" instance=ExtResource("2_4sp7i")]
+offset_left = -28.0
+offset_top = -10.0
+offset_right = -20.0
+offset_bottom = -2.0
+
+[node name="InputButton2" parent="Input" instance=ExtResource("2_4sp7i")]
+offset_left = -28.0
+offset_top = 1.0
+offset_right = -20.0
+offset_bottom = 9.0
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]
+[connection signal="pressed" from="Input/InputButton1" to="." method="_on_input_button_1_pressed"]
+[connection signal="pressed" from="Input/InputButton2" to="." method="_on_input_button_2_pressed"]

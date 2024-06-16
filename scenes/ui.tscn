@@ -45,4 +45,5 @@ text = "Evaluate"
 
 [connection signal="pressed" from="HBoxContainer/InputNodeButton" to="." method="_on_input_node_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/OrGateButton" to="." method="_on_or_gate_button_pressed"]
 [connection signal="pressed" from="EvaluateButton" to="." method="_on_evaluate_button_pressed"]
