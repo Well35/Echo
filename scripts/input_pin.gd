@@ -3,7 +3,7 @@ extends StaticBody2D
 var selected: bool = false
 var evaluated: bool
 var has_both_inputs: bool = false
-var output_button
+@onready var output_button = $Button
 
 @onready var input_button1 = $Button
 @onready var input_button2 = $Button
@@ -17,7 +17,6 @@ func _ready():
 	$Button.value = false #TODO: change from default value of true
 	$Button.value_changed = true
 	evaluated = true
-	output_button = $Button
 
 func _process(delta):
 	if selected:

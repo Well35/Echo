@@ -60,10 +60,19 @@ func evaluate():
 	
 	for i in range(x, 0, -1):
 		var s: String
+		# Reset all gates before running through current iteration
+		for gate in gates:
+			gate.evaluated = false
+			gate.input_button1.value_changed = false
+			gate.input_button2.value_changed = false
+			$OutputPin.output_button.value_changed = false
+		
 		# Get every permutation of the input pins being on/off
 		for j in range(inputs.size()):
 			var num = ((i >> j) & 1)
 			s += str((i >> j) & 1)
+			inputs[j].output_button.value = bool(num)
+			#print(inputs[j].output_button.value)
 			
 		while not $OutputPin.output_button.value_changed:
 			# Transfer all values of input nodes into gates
@@ -84,7 +93,7 @@ func evaluate():
 				if gate.input_button1.value_changed and gate.input_button2.value_changed and not gate.evaluated:
 					gate.evaluate()
 					gate.evaluated = true
-			
+		s += " " + str($OutputPin.output_button.value)
 		print(s)
 	#print($OutputPin.output_button.value)
 	

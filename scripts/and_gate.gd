@@ -22,24 +22,24 @@ func _process(delta):
 	if Input.is_action_just_released("interact"):
 		selected = false
 
-func _on_output_button_pressed():
+func button_pressed(b: Button, is_input_button: bool):
 	Globals.buttons_clicked += 1
-	if not $Output/OutputButton.has_wire:
-		Globals.wire_start_pos = $Output/OutputButton.global_position
-		Globals.start_button = $Output/OutputButton
+	if not b.has_wire and not is_input_button:
+		Globals.wire_start_pos = b.global_position
+		Globals.start_button = b
+	if not b.has_wire and is_input_button:
+		Globals.wire_end_pos = b.global_position
+		Globals.end_button = b
+
+func _on_output_button_pressed():
+	button_pressed(output_button, false)
 
 func _on_input_button_1_pressed():
-	Globals.buttons_clicked += 1
-	if not $Input/InputButton1.has_wire:
-		Globals.wire_end_pos = $Input/InputButton1.global_position
-		Globals.end_button = $Input/InputButton1
-
+	button_pressed(input_button1, true)
 
 func _on_input_button_2_pressed():
-	Globals.buttons_clicked += 1
-	if not $Input/InputButton2.has_wire:
-		Globals.wire_end_pos = $Input/InputButton2.global_position
-		Globals.end_button = $Input/InputButton2
+	button_pressed(input_button2, true)
 
 func evaluate():
-	$Output/OutputButton.value = $Input/InputButton1.value and $Input/InputButton2
+	$Output/OutputButton.value = (input_button1.value and input_button2.value)
+	#print(str(input_button1.value) + " " + str(input_button2.value) + ": " + str(input_button1.value and input_button2.value) + " " + str(output_button.value))
