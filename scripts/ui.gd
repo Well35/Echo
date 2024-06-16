@@ -2,6 +2,7 @@ extends CanvasLayer
 
 var input_pin_scene = preload("res://scenes/input_pin.tscn")
 var and_gate_scene = preload("res://scenes/and_gate.tscn")
+var nand_gate_scene = preload("res://scenes/nand_gate.tscn")
 var or_gate_scene = preload("res://scenes/or_gate.tscn")
 var nor_gate_scene = preload("res://scenes/nor_gate.tscn")
 
@@ -28,6 +29,21 @@ func _on_evaluate_button_pressed():
 func _on_or_gate_button_pressed():
 	create_gate(or_gate_scene)
 
-
 func _on_nor_gate_button_pressed():
 	create_gate(nor_gate_scene)
+
+
+func _on_nand_gate_button_pressed():
+	create_gate(nand_gate_scene)
+
+
+func _on_xor_gate_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_xnor_gate_button_pressed():
+	pass # Replace with function body.
+
+
+func _on_not_gate_button_pressed():
+	pass # Replace with function body.

@@ -34,6 +34,22 @@ text = "OR Gate"
 layout_mode = 2
 text = "NOR Gate"
 
+[node name="NandGateButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "NAND Gate"
+
+[node name="XorGateButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "XOR Gate"
+
+[node name="XnorGateButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "XNOR Gate"
+
+[node name="NotGateButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "NOT Gate"
+
 [node name="EvaluateButton" type="Button" parent="."]
 anchors_preset = -1
 anchor_left = 0.935
@@ -51,4 +67,8 @@ text = "Evaluate"
 [connection signal="pressed" from="HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/OrGateButton" to="." method="_on_or_gate_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/NorGateButton" to="." method="_on_nor_gate_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/NandGateButton" to="." method="_on_nand_gate_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/XorGateButton" to="." method="_on_xor_gate_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/XnorGateButton" to="." method="_on_xnor_gate_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/NotGateButton" to="." method="_on_not_gate_button_pressed"]
 [connection signal="pressed" from="EvaluateButton" to="." method="_on_evaluate_button_pressed"]
