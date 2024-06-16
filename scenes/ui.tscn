@@ -24,11 +24,15 @@ text = "Input Pin"
 
 [node name="AndGateButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "And Gate"
+text = "AND Gate"
 
 [node name="OrGateButton" type="Button" parent="HBoxContainer"]
 layout_mode = 2
-text = "Or Gate"
+text = "OR Gate"
+
+[node name="NorGateButton" type="Button" parent="HBoxContainer"]
+layout_mode = 2
+text = "NOR Gate"
 
 [node name="EvaluateButton" type="Button" parent="."]
 anchors_preset = -1
@@ -46,4 +50,5 @@ text = "Evaluate"
 [connection signal="pressed" from="HBoxContainer/InputNodeButton" to="." method="_on_input_node_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/OrGateButton" to="." method="_on_or_gate_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/NorGateButton" to="." method="_on_nor_gate_button_pressed"]
 [connection signal="pressed" from="EvaluateButton" to="." method="_on_evaluate_button_pressed"]

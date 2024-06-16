@@ -3,12 +3,12 @@ extends CanvasLayer
 var input_pin_scene = preload("res://scenes/input_pin.tscn")
 var and_gate_scene = preload("res://scenes/and_gate.tscn")
 var or_gate_scene = preload("res://scenes/or_gate.tscn")
+var nor_gate_scene = preload("res://scenes/nor_gate.tscn")
 
 signal eval
 
 func _on_and_gate_button_pressed():
 	create_gate(and_gate_scene)
-
 
 func _on_input_node_button_pressed():
 	var input_pin = input_pin_scene.instantiate()
@@ -27,3 +27,7 @@ func _on_evaluate_button_pressed():
 
 func _on_or_gate_button_pressed():
 	create_gate(or_gate_scene)
+
+
+func _on_nor_gate_button_pressed():
+	create_gate(nor_gate_scene)
