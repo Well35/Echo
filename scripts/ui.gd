@@ -46,8 +46,8 @@ func _on_xor_gate_button_pressed():
 
 
 func _on_xnor_gate_button_pressed():
-	pass # Replace with function body.
+	create_gate(xnor_gate_scene)
 
 
 func _on_not_gate_button_pressed():
-	pass # Replace with function body.
+	create_gate(not_gate_scene)

@@ -10,6 +10,7 @@ class_name gate extends StaticBody2D
 var selected: bool = false
 var evaluated: bool = false
 var has_both_inputs: bool = false
+var is_not_gate: bool = false
 @onready var output_button = $Output/OutputButton
 @onready var input_button1 = $Input/InputButton1
 @onready var input_button2 = $Input/InputButton2

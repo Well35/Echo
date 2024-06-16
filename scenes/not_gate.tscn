@@ -1,5 +1,6 @@
-[gd_scene load_steps=4 format=3 uid="uid://crwvf27rugkl1"]
+[gd_scene load_steps=5 format=3 uid="uid://crwvf27rugkl1"]
 
+[ext_resource type="Script" path="res://scripts/not_gate.gd" id="1_5e7tb"]
 [ext_resource type="Texture2D" uid="uid://bqe752oi1o4s6" path="res://assets/or_gate.png" id="1_e52gq"]
 [ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_elb4u"]
 
@@ -7,6 +8,7 @@
 size = Vector2(60, 22)
 
 [node name="NotGate" type="StaticBody2D"]
+script = ExtResource("1_5e7tb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.875, 1.375)

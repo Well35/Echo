@@ -1,16 +1,18 @@
-[gd_scene load_steps=4 format=3 uid="uid://bg64askfg78xw"]
+[gd_scene load_steps=5 format=3 uid="uid://bg64askfg78xw"]
 
-[ext_resource type="Texture2D" uid="uid://bqe752oi1o4s6" path="res://assets/or_gate.png" id="1_nfog0"]
+[ext_resource type="Script" path="res://scripts/xnor_gate.gd" id="1_i4v1c"]
+[ext_resource type="Texture2D" uid="uid://c1mdkbu5d1084" path="res://assets/xnor_gate.png" id="2_4rr2w"]
 [ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_kcrtp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_g3qcs"]
 size = Vector2(60, 22)
 
 [node name="XnorGate" type="StaticBody2D"]
+script = ExtResource("1_i4v1c")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(1.875, 1.375)
-texture = ExtResource("1_nfog0")
+texture = ExtResource("2_4rr2w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_g3qcs")
@@ -39,3 +41,8 @@ offset_top = 1.0
 offset_right = -20.0
 offset_bottom = 9.0
 metadata/_edit_use_anchors_ = true
+
+[connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]
+[connection signal="pressed" from="Input/InputButton1" to="." method="_on_input_button_1_pressed"]
+[connection signal="pressed" from="Input/InputButton2" to="." method="_on_input_button_2_pressed"]
