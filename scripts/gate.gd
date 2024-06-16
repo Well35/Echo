@@ -30,14 +30,13 @@ func _process(delta):
 	if Input.is_action_just_released("interact"):
 		selected = false
 
-#Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
 func button_pressed(b: Button, is_input_button: bool):
 	Globals.buttons_clicked += 1
 	if not b.has_wire and not is_input_button:
-		Globals.wire_start_pos = Vector2(b.global_position.x + b.rect_size.x / 2, b.global_position.y + b.rect_size.y / 2)
+		Globals.wire_start_pos = b.global_position + b.size / 2
 		Globals.start_button = b
 	if not b.has_wire and is_input_button:
-		Globals.wire_end_pos = Vector2(b.global_position.x + b.rect_size.x / 2, b.global_position.y + b.rect_size.y / 2)
+		Globals.wire_end_pos = b.global_position + b.size / 2
 		Globals.end_button = b
 
 func _on_output_button_pressed():
