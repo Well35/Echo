@@ -10,3 +10,5 @@ res://scenes/output_pin.tscn
 res://scripts/output_pin.gd
 res://scripts/globals.gd
 res://scripts/ui.gd
+res://scenes/gate.tscn
+res://scripts/gate.gd
