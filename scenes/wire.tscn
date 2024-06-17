@@ -3,5 +3,14 @@
 [ext_resource type="Script" path="res://scripts/wire.gd" id="1_frrh7"]
 
 [node name="Wire" type="Line2D"]
-width = 5.0
+default_color = Color(0.803922, 0.160784, 0, 1)
 script = ExtResource("1_frrh7")
+
+[node name="Area2D" type="Area2D" parent="."]
+modulate = Color(1, 0.0156863, 1, 1)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+modulate = Color(0.360784, 1, 0.886275, 1)
+debug_color = Color(0.00392157, 0, 0.733333, 1)
+
+[connection signal="input_event" from="Area2D" to="." method="_on_area_2d_input_event"]
