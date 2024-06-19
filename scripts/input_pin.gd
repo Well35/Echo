@@ -7,6 +7,7 @@ var has_both_inputs: bool = false
 
 @onready var input_button1 = $Button
 @onready var input_button2 = $Button
+@onready var input_number: int
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("interact"):
@@ -24,7 +25,8 @@ func _process(delta):
 	
 	if Input.is_action_just_released("interact"):
 		selected = false
-		
+	
+	$Number.text = str(input_number)
 
 
 func _on_button_pressed():

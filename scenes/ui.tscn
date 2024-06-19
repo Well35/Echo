@@ -56,12 +56,12 @@ anchor_left = 0.935
 anchor_top = 0.952
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = 66.8799
-offset_top = 23.104
+offset_left = -98.12
+offset_top = 0.104004
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
-text = "Evaluate"
+text = "Generate Truth Table"
 
 [connection signal="pressed" from="HBoxContainer/InputNodeButton" to="." method="_on_input_node_button_pressed"]
 [connection signal="pressed" from="HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]
