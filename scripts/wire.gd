@@ -25,4 +25,3 @@ func _on_area_2d_input_event(viewport, event, shape_idx):
 		start_button.has_wire = false
 		end_button.has_wire = false
 		queue_free()
-		print("hello")

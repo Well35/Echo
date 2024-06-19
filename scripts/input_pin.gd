@@ -14,7 +14,7 @@ func _on_input_event(viewport, event, shape_idx):
 
 func _ready():
 	input_pickable = true
-	$Button.value = false #TODO: change from default value of true
+	#$Button.value = false #TODO: change from default value of true
 	$Button.value_changed = true
 	evaluated = true
 

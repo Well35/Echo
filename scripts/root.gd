@@ -2,11 +2,6 @@ extends Node2D
 
 var wire_scene = preload("res://scenes/wire.tscn")
 
-# Called when the node enters the scene tree for the first time.
-func _ready():
-	pass # Replace with function body.
-
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var gates = $Gates.get_children()
@@ -56,17 +51,16 @@ func evaluate():
 	var x: int = pow(2, inputs.size())
 	#gates.reverse()
 	
+	clear_gates()
 	
+	if check_wires() == false:
+		print("Wires missing. Can't evaluate")
+		return
 	
 	for i in range(x, 0, -1):
 		var s: String
 		# Reset all gates before running through current iteration
-		for gate in gates:
-			gate.evaluated = false
-			gate.input_button1.value_changed = false
-			if not gate.is_not_gate:
-				gate.input_button2.value_changed = false
-			$OutputPin.output_button.value_changed = false
+		clear_gates()
 		
 		# Get every permutation of the input pins being on/off
 		for j in range(inputs.size()):
@@ -101,3 +95,28 @@ func evaluate():
 		print(s)
 	#print($OutputPin.output_button.value)
 	
+
+func check_wires():
+	var gates = $Gates.get_children()
+	var inputs = $Inputs.get_children()
+	
+	for gate in gates:
+		if not gate.is_not_gate:
+			if not gate.input_button2.has_wire:
+				return false
+		else:
+			if not gate.input_button1.has_wire or not gate.output_button.has_wire:
+				return false
+	
+	for input in inputs:
+		if not input.output_button.has_wire:
+			return false
+
+func clear_gates():
+	var gates = $Gates.get_children()
+	for gate in gates:
+			gate.evaluated = false
+			gate.input_button1.value_changed = false
+			if not gate.is_not_gate:
+				gate.input_button2.value_changed = false
+			$OutputPin.output_button.value_changed = false
