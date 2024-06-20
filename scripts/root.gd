@@ -149,17 +149,17 @@ func clear_gates():
 func draw_top_row_of_table(row_length: int):
 	for i in range(row_length):
 		var tile = truth_table_tile_scene.instantiate()
-		tile.color = Color("BLACK")
+		tile.rect_color = Color("GRAY")
 		tile.text = str(i)
 		truth_table_popup.tiles.add_child(tile)
 	
 	var tile = truth_table_tile_scene.instantiate()
-	tile.color = Color("BLACK")
+	tile.rect_color = Color("GRAY")
 	tile.text = "Output"
 	truth_table_popup.tiles.add_child(tile)
 
 func instantiate_tile(tile_color: Color, tile_text: String):
 	var tile = truth_table_tile_scene.instantiate()
-	tile.color = tile_color
+	tile.rect_color = tile_color
 	tile.text = tile_text
 	return tile

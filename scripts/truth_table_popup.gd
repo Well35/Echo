@@ -1,10 +1,10 @@
 extends PanelContainer
 
-@onready var tiles = $VBoxContainer/MarginContainer/TableTiles
-@onready var columns
+@onready var tiles = $VBoxContainer/MarginContainer/MarginContainer/TableTiles
+@onready var columns = 2
 
 func _process(delta):
-	$VBoxContainer/MarginContainer/TableTiles.columns = columns
+	$VBoxContainer/MarginContainer/MarginContainer/TableTiles.columns = columns
 
 func _on_exit_button_pressed():
 	queue_free()
