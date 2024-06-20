@@ -50,13 +50,16 @@ theme_override_styles/normal = SubResource("StyleBoxFlat_52wti")
 theme_override_styles/hover = SubResource("StyleBoxFlat_qqf4a")
 text = "X"
 
+[node name="Title" type="Label" parent="VBoxContainer/ColorRect"]
+layout_mode = 0
+offset_right = 426.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = " Truth Table"
+
 [node name="Control2" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 7)
 layout_mode = 2
-
-[node name="Title" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-text = "Truth Table"
 
 [node name="Control" type="Control" parent="VBoxContainer"]
 custom_minimum_size = Vector2(0, 10)
@@ -75,6 +78,7 @@ theme_override_constants/margin_right = 5
 theme_override_constants/margin_bottom = 5
 
 [node name="ColorRect" type="ColorRect" parent="VBoxContainer/MarginContainer"]
+visible = false
 layout_mode = 2
 color = Color(0, 0, 0, 1)
 
@@ -85,8 +89,12 @@ theme_override_constants/margin_top = 10
 theme_override_constants/margin_right = 10
 theme_override_constants/margin_bottom = 10
 
-[node name="TableTiles" type="GridContainer" parent="VBoxContainer/MarginContainer/MarginContainer"]
+[node name="ScrollContainer" type="ScrollContainer" parent="VBoxContainer/MarginContainer/MarginContainer"]
 layout_mode = 2
+
+[node name="TableTiles" type="GridContainer" parent="VBoxContainer/MarginContainer/MarginContainer/ScrollContainer"]
+layout_mode = 2
+size_flags_horizontal = 6
 size_flags_vertical = 3
 theme_override_constants/h_separation = 6
 theme_override_constants/v_separation = 6
