@@ -1,74 +1,170 @@
-[gd_scene load_steps=2 format=3 uid="uid://bcv2dsnlhrfx5"]
+[gd_scene load_steps=12 format=3 uid="uid://bcv2dsnlhrfx5"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_bb53i"]
+[ext_resource type="StyleBox" uid="uid://b630eqymrywqp" path="res://assets/ui_button_normal.tres" id="2_svwto"]
+[ext_resource type="StyleBox" uid="uid://ch57yelypgs5h" path="res://assets/ui_button_hovered.tres" id="3_k4yfr"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y02cv"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_s63ik"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_bci73"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_3kaxy"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_d0ea4"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_w3rea"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_us5or"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_c1vac"]
 
 [node name="UI" type="CanvasLayer"]
 script = ExtResource("1_bb53i")
 metadata/_edit_use_anchors_ = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="."]
+[node name="ColorRect" type="ColorRect" parent="."]
 anchors_preset = -1
-anchor_left = 0.142
-anchor_top = 0.952
-anchor_right = 0.858
+anchor_left = 0.299
+anchor_top = 0.894
+anchor_right = 0.64
 anchor_bottom = 1.0
-offset_left = 0.416
-offset_top = 0.104004
-offset_right = -0.416016
+offset_left = -0.448029
+offset_top = -0.312012
+offset_right = -0.280029
+offset_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 0
+color = Color(0, 0, 0, 1)
 
-[node name="InputNodeButton" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "Input Pin"
+[node name="Label" type="Label" parent="ColorRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.041
+anchor_top = 0.145
+anchor_right = 0.158
+anchor_bottom = 0.899
+offset_left = -0.113001
+offset_top = -0.00500107
+offset_right = -0.0940018
+offset_bottom = -0.031002
+grow_vertical = 2
+text = "Add
+Gates"
+horizontal_alignment = 1
+vertical_alignment = 1
 
-[node name="AndGateButton" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-text = "AND Gate"
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchors_preset = -1
+anchor_left = 0.365
+anchor_top = 0.9
+anchor_right = 0.634
+anchor_bottom = 0.995
+offset_left = 0.519989
+offset_top = -0.200012
+offset_right = 0.632019
+offset_bottom = 0.239929
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_constants/separation = 4
+alignment = 2
 
-[node name="OrGateButton" type="Button" parent="HBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "OR Gate"
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+alignment = 1
 
-[node name="NorGateButton" type="Button" parent="HBoxContainer"]
+[node name="InputNodeButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "NOR Gate"
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_y02cv")
+text = "INPUT"
 
-[node name="NandGateButton" type="Button" parent="HBoxContainer"]
+[node name="AndGateButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "NAND Gate"
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_s63ik")
+text = "AND"
 
-[node name="XorGateButton" type="Button" parent="HBoxContainer"]
+[node name="OrGateButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "XOR Gate"
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_bci73")
+text = "OR"
 
-[node name="XnorGateButton" type="Button" parent="HBoxContainer"]
+[node name="NotGateButton" type="Button" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2
-text = "XNOR Gate"
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_3kaxy")
+text = "NOT"
 
-[node name="NotGateButton" type="Button" parent="HBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
-text = "NOT Gate"
+size_flags_vertical = 3
+theme_override_constants/separation = 4
+alignment = 1
+
+[node name="NandGateButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_d0ea4")
+text = "NAND"
+
+[node name="NorGateButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_w3rea")
+text = "NOR"
+
+[node name="XorGateButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_us5or")
+text = "XOR"
+
+[node name="XnorGateButton" type="Button" parent="VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/normal = ExtResource("2_svwto")
+theme_override_styles/hover = ExtResource("3_k4yfr")
+theme_override_styles/focus = SubResource("StyleBoxEmpty_c1vac")
+text = "XNOR"
 
 [node name="EvaluateButton" type="Button" parent="."]
 anchors_preset = -1
-anchor_left = 0.935
+anchor_left = 0.85
 anchor_top = 0.952
 anchor_right = 1.0
 anchor_bottom = 1.0
-offset_left = -98.12
+offset_left = -0.200012
 offset_top = 0.104004
 grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 text = "Generate Truth Table"
 
-[connection signal="pressed" from="HBoxContainer/InputNodeButton" to="." method="_on_input_node_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/OrGateButton" to="." method="_on_or_gate_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/NorGateButton" to="." method="_on_nor_gate_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/NandGateButton" to="." method="_on_nand_gate_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/XorGateButton" to="." method="_on_xor_gate_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/XnorGateButton" to="." method="_on_xnor_gate_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/NotGateButton" to="." method="_on_not_gate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/InputNodeButton" to="." method="_on_input_node_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/OrGateButton" to="." method="_on_or_gate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer/NotGateButton" to="." method="_on_not_gate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NandGateButton" to="." method="_on_nand_gate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/NorGateButton" to="." method="_on_nor_gate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/XorGateButton" to="." method="_on_xor_gate_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/HBoxContainer2/XnorGateButton" to="." method="_on_xnor_gate_button_pressed"]
 [connection signal="pressed" from="EvaluateButton" to="." method="_on_evaluate_button_pressed"]
