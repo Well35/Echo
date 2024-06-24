@@ -12,6 +12,16 @@ var has_both_inputs: bool = false
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("interact"):
 		selected = true
+	elif event.is_action_pressed("remove"):
+		delete()
+
+func delete():
+	if output_button.has_wire:
+		output_button.transfer_button.previous_button = null
+		output_button.transfer_button.has_wire = false
+		output_button.transfer_button.wire.queue_free()
+	Globals.input_pins -= 1
+	queue_free()
 
 func _ready():
 	input_pickable = true

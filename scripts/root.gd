@@ -43,8 +43,11 @@ func _process(delta):
 			
 			# Point the output to the correct input on another gate
 			Globals.start_button.transfer_button = Globals.end_button
+			Globals.end_button.previous_button = Globals.start_button
 			Globals.start_button.has_wire = true
 			Globals.end_button.has_wire = true
+			Globals.start_button.wire = wire
+			Globals.end_button.wire = wire
 			$Wires.add_child(wire)
 		
 		# Clear wire positions after creating wire to help with error checking

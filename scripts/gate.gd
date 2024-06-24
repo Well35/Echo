@@ -18,6 +18,23 @@ var input_button2
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("interact"):
 		selected = true
+	elif event.is_action_pressed("remove"):
+		delete()
+
+func delete():
+	if input_button1.has_wire:
+		input_button1.previous_button.transfer_button = null
+		input_button1.previous_button.has_wire = false
+		input_button1.previous_button.wire.queue_free()
+	if input_button2 != null and input_button2.has_wire:
+		input_button2.previous_button.transfer_button = null
+		input_button2.previous_button.has_wire = false
+		input_button2.previous_button.wire.queue_free()
+	if output_button.has_wire:
+		output_button.transfer_button.previous_button = null
+		output_button.transfer_button.has_wire = false
+		output_button.transfer_button.wire.queue_free()
+	queue_free()
 
 func _ready():
 	if not is_not_gate:
@@ -47,6 +64,3 @@ func _on_input_button_1_pressed():
 
 func _on_input_button_2_pressed():
 	button_pressed(input_button2, true)
-
-#func evaluate():
-#	$Output/OutputButton.value = (input_button1.value and input_button2.value)
