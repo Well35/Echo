@@ -1,8 +1,9 @@
-[gd_scene load_steps=12 format=3 uid="uid://bcv2dsnlhrfx5"]
+[gd_scene load_steps=13 format=3 uid="uid://bcv2dsnlhrfx5"]
 
 [ext_resource type="Script" path="res://scripts/ui.gd" id="1_bb53i"]
 [ext_resource type="StyleBox" uid="uid://b630eqymrywqp" path="res://assets/ui_button_normal.tres" id="2_svwto"]
 [ext_resource type="StyleBox" uid="uid://ch57yelypgs5h" path="res://assets/ui_button_hovered.tres" id="3_k4yfr"]
+[ext_resource type="PackedScene" uid="uid://uns4lm4i4ev3" path="res://scenes/help_popup.tscn" id="4_6hw8n"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_y02cv"]
 
@@ -158,6 +159,8 @@ grow_horizontal = 0
 grow_vertical = 0
 size_flags_vertical = 8
 text = "Generate Truth Table"
+
+[node name="HelpPopup" parent="." instance=ExtResource("4_6hw8n")]
 
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/InputNodeButton" to="." method="_on_input_node_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]

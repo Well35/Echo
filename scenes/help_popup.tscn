@@ -1,0 +1,103 @@
+[gd_scene load_steps=6 format=3 uid="uid://uns4lm4i4ev3"]
+
+[ext_resource type="Script" path="res://scripts/help_popup.gd" id="1_8ao7l"]
+[ext_resource type="StyleBox" uid="uid://b630eqymrywqp" path="res://assets/ui_button_normal.tres" id="1_hearw"]
+[ext_resource type="StyleBox" uid="uid://ch57yelypgs5h" path="res://assets/ui_button_hovered.tres" id="2_v6ma2"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k187u"]
+bg_color = Color(0.717647, 0, 0.0862745, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dkxts"]
+bg_color = Color(1, 0.407843, 0.321569, 1)
+
+[node name="HelpPopup" type="PanelContainer"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -197.402
+offset_top = -247.5
+offset_right = 197.402
+offset_bottom = 247.5
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_horizontal = 3
+size_flags_vertical = 3
+script = ExtResource("1_8ao7l")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 2
+color = Color(0.137255, 0.137255, 0.137255, 1)
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 2
+
+[node name="ColorRect2" type="ColorRect" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 25)
+layout_mode = 2
+color = Color(0.8, 0.8, 0.8, 1)
+
+[node name="ExitButton" type="Button" parent="VBoxContainer/ColorRect2"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -41.0
+offset_bottom = 25.0
+grow_horizontal = 0
+size_flags_horizontal = 8
+theme_override_styles/normal = SubResource("StyleBoxFlat_k187u")
+theme_override_styles/hover = SubResource("StyleBoxFlat_dkxts")
+text = "X"
+
+[node name="Title" type="Label" parent="VBoxContainer/ColorRect2"]
+layout_mode = 0
+offset_right = 102.0
+offset_bottom = 28.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = " Help"
+
+[node name="Control" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 5
+theme_override_constants/margin_right = 5
+
+[node name="HelpText" type="Label" parent="VBoxContainer/MarginContainer"]
+layout_mode = 2
+text = "1. Add logic gates and input pins by clicking the buttons below
+
+2. Move the gates around by holding the left mouse button and dragging on the gate
+
+3. Wire them up by clicking on the input/output buttons on each logic gate (an input button must be connected to an output button)
+ 
+4. Delete a gate or a wire using right click
+
+5. Press the button in the bottom right to view the truth table of your completed circuit"
+autowrap_mode = 2
+
+[node name="Control2" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 30)
+layout_mode = 2
+
+[node name="CenterContainer" type="CenterContainer" parent="VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="OKButton" type="Button" parent="VBoxContainer/CenterContainer"]
+custom_minimum_size = Vector2(60, 30)
+layout_mode = 2
+theme_override_styles/normal = ExtResource("1_hearw")
+theme_override_styles/hover = ExtResource("2_v6ma2")
+text = "OK!"
+
+[node name="Control3" type="Control" parent="VBoxContainer"]
+custom_minimum_size = Vector2(0, 20)
+layout_mode = 2
+
+[connection signal="pressed" from="VBoxContainer/ColorRect2/ExitButton" to="." method="_on_exit_button_pressed"]
+[connection signal="pressed" from="VBoxContainer/CenterContainer/OKButton" to="." method="_on_ok_button_pressed"]

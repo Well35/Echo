@@ -6,6 +6,9 @@ var truth_table_tile_scene = preload("res://scenes/truth_table_tile.tscn")
 
 var truth_table_popup: PanelContainer
 
+func _ready():
+	DisplayServer.window_set_min_size(Vector2i(1260, 720))
+
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	var gates = $Gates.get_children()
