@@ -1,7 +1,7 @@
 extends PanelContainer
 
 @onready var tiles = $VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/TableTiles
-@onready var columns = 2
+@onready var columns
 
 func _process(delta):
 	$VBoxContainer/MarginContainer/MarginContainer/ScrollContainer/TableTiles.columns = columns

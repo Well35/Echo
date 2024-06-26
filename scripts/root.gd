@@ -3,6 +3,7 @@ extends Node2D
 var wire_scene = preload("res://scenes/wire.tscn")
 var popup_scene = preload("res://scenes/truth_table_popup.tscn")
 var truth_table_tile_scene = preload("res://scenes/truth_table_tile.tscn")
+var error_scene = preload("res://scenes/error_popup.tscn")
 
 var truth_table_popup: PanelContainer
 
@@ -61,20 +62,22 @@ func _process(delta):
 
 # The heart of the program
 func evaluate():
-	#print("evaluate")
 	var gates = $Gates.get_children()
 	var inputs = $Inputs.get_children()
 	var x: int = pow(2, inputs.size())
-	#gates.reverse()
 	
 	clear_gates()
 	
 	if gates.size() == 0 or inputs.size() == 0:
-		print("Place at least one input pin and one gate")
+		var error = error_scene.instantiate()
+		error.error_text = "Place at least one input pin and one logic gate"
+		$UI.add_child(error)
 		return
 	
 	if check_wires() == false:
-		print("Wires missing. Can't evaluate")
+		var error = error_scene.instantiate()
+		error.error_text = "Missing wire connections in input pins or logic gates. Can't evaluate"
+		$UI.add_child(error)
 		return
 	
 	truth_table_popup = popup_scene.instantiate()
