@@ -2,45 +2,44 @@
 
 [ext_resource type="Script" path="res://scripts/or_gate.gd" id="1_n54w2"]
 [ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_4sp7i"]
-[ext_resource type="Texture2D" uid="uid://bqe752oi1o4s6" path="res://assets/or_gate.png" id="2_iw4a1"]
+[ext_resource type="Texture2D" uid="uid://jl4f4v3ql45m" path="res://assets/OR.png" id="2_q7b57"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_c7kns"]
-size = Vector2(60, 22)
+size = Vector2(100, 121.429)
 
 [node name="OrGate" type="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_n54w2")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.875, 1.375)
-texture = ExtResource("2_iw4a1")
+texture = ExtResource("2_q7b57")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.36239e-06, 0.714277)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_c7kns")
 
 [node name="Output" type="Node2D" parent="."]
 
 [node name="OutputButton" parent="Output" instance=ExtResource("2_4sp7i")]
-offset_left = 20.0
-offset_top = -4.0
-offset_right = 28.0
-offset_bottom = 4.0
-metadata/_edit_use_anchors_ = true
+offset_left = 37.1429
+offset_top = -10.0
+offset_right = 57.1429
+offset_bottom = 10.0
 
 [node name="Input" type="Node2D" parent="."]
 
 [node name="InputButton1" parent="Input" instance=ExtResource("2_4sp7i")]
-offset_left = -28.0
-offset_top = -10.0
-offset_right = -20.0
-offset_bottom = -2.0
-metadata/_edit_use_anchors_ = true
+offset_left = -47.1429
+offset_top = -47.1429
+offset_right = -27.1429
+offset_bottom = -27.1429
 
 [node name="InputButton2" parent="Input" instance=ExtResource("2_4sp7i")]
-offset_left = -28.0
-offset_top = 1.0
-offset_right = -20.0
-offset_bottom = 9.0
-metadata/_edit_use_anchors_ = true
+offset_left = -44.2857
+offset_top = 18.5714
+offset_right = -24.2857
+offset_bottom = 38.5714
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]

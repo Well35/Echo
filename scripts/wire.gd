@@ -10,7 +10,7 @@ var shape = RectangleShape2D.new()
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	set_point_position(0, start_button.global_position + start_button.size / 2)
-	set_point_position(1, end_button.global_position + end_button.size / 2)
+	set_point_position(1, end_button.global_position)
 	
 	shape.size.x = get_point_position(1).distance_to(get_point_position(0))
 	shape.size.y = width

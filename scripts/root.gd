@@ -70,13 +70,13 @@ func evaluate():
 	
 	if gates.size() == 0 or inputs.size() == 0:
 		var error = error_scene.instantiate()
-		error.error_text = "Place at least one input pin and one logic gate"
+		error.error_text = "Place at least one input pin and one logic gate."
 		$UI.add_child(error)
 		return
 	
 	if check_wires() == false:
 		var error = error_scene.instantiate()
-		error.error_text = "Missing wire connections in input pins or logic gates. Can't evaluate"
+		error.error_text = "Missing wire connections in input pins or logic gates. Can't evaluate."
 		$UI.add_child(error)
 		return
 	

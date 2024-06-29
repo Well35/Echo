@@ -1,46 +1,45 @@
 [gd_scene load_steps=5 format=3 uid="uid://d1b7jg5kblqan"]
 
 [ext_resource type="Script" path="res://scripts/xor_gate.gd" id="1_66onx"]
-[ext_resource type="Texture2D" uid="uid://b57kqrxeuknrf" path="res://assets/xor_gate.png" id="2_psyia"]
+[ext_resource type="Texture2D" uid="uid://dikeem16jfclf" path="res://assets/XOR.png" id="2_23akk"]
 [ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_r17nf"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_missf"]
-size = Vector2(60, 22)
+size = Vector2(114.286, 114.286)
 
 [node name="XorGate" type="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_66onx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.875, 1.375)
-texture = ExtResource("2_psyia")
+texture = ExtResource("2_23akk")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.78814e-06, 3.704e-06)
+scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_missf")
 
 [node name="Output" type="Node2D" parent="."]
 
 [node name="OutputButton" parent="Output" instance=ExtResource("2_r17nf")]
-offset_left = 20.0
-offset_top = -4.0
-offset_right = 28.0
-offset_bottom = 4.0
-metadata/_edit_use_anchors_ = true
+offset_left = 48.5714
+offset_top = -10.0
+offset_right = 68.5714
+offset_bottom = 10.0
 
 [node name="Input" type="Node2D" parent="."]
 
 [node name="InputButton1" parent="Input" instance=ExtResource("2_r17nf")]
-offset_left = -28.0
-offset_top = -10.0
-offset_right = -20.0
-offset_bottom = -2.0
-metadata/_edit_use_anchors_ = true
+offset_left = -37.1429
+offset_top = -41.4286
+offset_right = -17.1429
+offset_bottom = -21.4286
 
 [node name="InputButton2" parent="Input" instance=ExtResource("2_r17nf")]
-offset_left = -28.0
-offset_top = 1.0
-offset_right = -20.0
-offset_bottom = 9.0
-metadata/_edit_use_anchors_ = true
+offset_left = -38.5714
+offset_top = 21.4286
+offset_right = -18.5714
+offset_bottom = 41.4286
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]

@@ -2,38 +2,37 @@
 
 [ext_resource type="Script" path="res://scripts/not_gate.gd" id="1_5e7tb"]
 [ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_elb4u"]
-[ext_resource type="Texture2D" uid="uid://cf3unbuy2anuc" path="res://assets/not_gate.png" id="2_mbb1i"]
+[ext_resource type="Texture2D" uid="uid://dc80bg647smce" path="res://assets/NOT.png" id="2_l7wan"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_kdlnl"]
-size = Vector2(60, 22)
+size = Vector2(113.333, 107.667)
 
 [node name="NotGate" type="StaticBody2D"]
+scale = Vector2(0.6, 0.6)
 script = ExtResource("1_5e7tb")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.875, 1.375)
-texture = ExtResource("2_mbb1i")
+texture = ExtResource("2_l7wan")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.19209e-06, -0.499999)
 shape = SubResource("RectangleShape2D_kdlnl")
 
 [node name="Output" type="Node2D" parent="."]
 
 [node name="OutputButton" parent="Output" instance=ExtResource("2_elb4u")]
-offset_left = 20.0
-offset_top = -4.0
-offset_right = 28.0
-offset_bottom = 4.0
-metadata/_edit_use_anchors_ = true
+offset_left = 23.3333
+offset_top = -10.0
+offset_right = 43.3333
+offset_bottom = 10.0
 
 [node name="Input" type="Node2D" parent="."]
 
 [node name="InputButton1" parent="Input" instance=ExtResource("2_elb4u")]
-offset_left = -27.0
-offset_top = -4.0
-offset_right = -19.0
-offset_bottom = 4.0
-metadata/_edit_use_anchors_ = true
+offset_left = -60.0
+offset_top = -10.0
+offset_right = -40.0
+offset_bottom = 10.0
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]

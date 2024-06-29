@@ -19,13 +19,13 @@ func _on_input_node_button_pressed():
 	var input_pin = input_pin_scene.instantiate()
 	input_pin.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
 	input_pin.input_number = Globals.input_pins
-	get_parent().get_child(2).add_child(input_pin)
+	get_parent().get_child(3).add_child(input_pin)
 	Globals.input_pins += 1
 
 func create_gate(gate_scene):
 	var gate = gate_scene.instantiate()
 	gate.position = Vector2(get_viewport().size.x / 2, get_viewport().size.y / 2)
-	get_parent().get_child(1).add_child(gate)
+	get_parent().get_child(2).add_child(gate)
 
 func _on_evaluate_button_pressed():
 	eval.emit()

@@ -1,44 +1,44 @@
 [gd_scene load_steps=5 format=3 uid="uid://b3356wtxmmxke"]
 
 [ext_resource type="Script" path="res://scripts/nand_gate.gd" id="1_to7ql"]
-[ext_resource type="Texture2D" uid="uid://bas7l7s6b2bhk" path="res://assets/nand_gate.png" id="2_gfpiu"]
 [ext_resource type="PackedScene" uid="uid://cqnj3bx1nrpms" path="res://scenes/button.tscn" id="2_npyua"]
+[ext_resource type="Texture2D" uid="uid://cnu14ln1ingrk" path="res://assets/NAND.png" id="2_nxw7x"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7h5xe"]
-size = Vector2(60, 22)
+size = Vector2(115, 113.333)
 
 [node name="NandGate" type="StaticBody2D"]
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_to7ql")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
-scale = Vector2(1.875, 1.375)
-texture = ExtResource("2_gfpiu")
+texture = ExtResource("2_nxw7x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0)
 shape = SubResource("RectangleShape2D_7h5xe")
 
 [node name="Output" type="Node2D" parent="."]
 
 [node name="OutputButton" parent="Output" instance=ExtResource("2_npyua")]
-offset_left = 20.0
-offset_top = -4.0
-offset_right = 28.0
-offset_bottom = 4.0
-metadata/_edit_use_anchors_ = true
+offset_left = 22.8571
+offset_top = -10.0
+offset_right = 42.8571
+offset_bottom = 10.0
 
 [node name="Input" type="Node2D" parent="."]
 
 [node name="InputButton1" parent="Input" instance=ExtResource("2_npyua")]
-offset_left = -28.0
-offset_top = -10.0
-offset_right = -20.0
-offset_bottom = -2.0
+offset_left = -60.0
+offset_top = -41.4286
+offset_right = -40.0
+offset_bottom = -21.4286
 
 [node name="InputButton2" parent="Input" instance=ExtResource("2_npyua")]
-offset_left = -28.0
-offset_top = 1.0
-offset_right = -20.0
-offset_bottom = 9.0
+offset_left = -58.5714
+offset_top = 21.4286
+offset_right = -38.5714
+offset_bottom = 41.4286
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]
