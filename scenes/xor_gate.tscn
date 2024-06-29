@@ -23,9 +23,7 @@ shape = SubResource("RectangleShape2D_missf")
 
 [node name="OutputButton" parent="Output" instance=ExtResource("2_r17nf")]
 offset_left = 48.5714
-offset_top = -10.0
 offset_right = 68.5714
-offset_bottom = 10.0
 
 [node name="Input" type="Node2D" parent="."]
 

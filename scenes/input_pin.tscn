@@ -31,9 +31,8 @@ shape = SubResource("RectangleShape2D_o4fg3")
 [node name="Button" parent="." instance=ExtResource("3_26ygp")]
 offset_left = -10.0
 offset_top = -10.0
-offset_right = 15.0
-offset_bottom = 15.0
-scale = Vector2(0.8, 0.8)
+offset_right = 10.0
+offset_bottom = 10.0
 
 [node name="Number" type="Label" parent="."]
 offset_left = -18.0

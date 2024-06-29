@@ -10,7 +10,7 @@ load_path = "res://.godot/imported/AND.png-97c93b23f89fb50a63432eac1ec5b30c.ctex
 size = Vector2(117, 98)
 
 [node name="AndGate" type="StaticBody2D"]
-scale = Vector2(0.6, 0.6)
+scale = Vector2(0.7, 0.7)
 script = ExtResource("1_vtyvw")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -21,28 +21,33 @@ position = Vector2(0.499998, 9.53674e-07)
 shape = SubResource("RectangleShape2D_jt1c5")
 
 [node name="Output" type="Node2D" parent="."]
-position = Vector2(16.9231, -3.84615)
 
 [node name="OutputButton" parent="Output" instance=ExtResource("3_b2imy")]
-offset_left = 24.7436
-offset_top = -6.15385
-offset_right = 44.7436
-offset_bottom = 13.8462
+offset_left = 47.1429
+offset_right = 67.1429
 
 [node name="Input" type="Node2D" parent="."]
-position = Vector2(16.9231, -3.84615)
 
 [node name="InputButton1" parent="Input" instance=ExtResource("3_b2imy")]
-offset_left = -78.5898
-offset_top = 17.1795
-offset_right = -53.5898
-offset_bottom = 42.1795
+anchors_preset = -1
+anchor_left = 0.0
+offset_left = -58.5714
+offset_top = 11.4286
+offset_right = -33.5714
+offset_bottom = 36.4286
 
 [node name="InputButton2" parent="Input" instance=ExtResource("3_b2imy")]
-offset_left = -78.5898
-offset_top = -34.4872
-offset_right = -53.5898
-offset_bottom = -9.48718
+anchors_preset = 0
+anchor_left = 0.0
+anchor_top = 0.0
+anchor_right = 0.0
+anchor_bottom = 0.0
+offset_left = -61.4286
+offset_top = -37.1429
+offset_right = -36.4286
+offset_bottom = -12.1429
+grow_horizontal = 1
+grow_vertical = 1
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="pressed" from="Output/OutputButton" to="." method="_on_output_button_pressed"]
