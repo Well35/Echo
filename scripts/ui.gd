@@ -11,6 +11,7 @@ var not_gate_scene = preload("res://scenes/not_gate.tscn")
 
 
 signal eval
+signal clear
 
 func _on_and_gate_button_pressed():
 	create_gate(and_gate_scene)
@@ -52,3 +53,7 @@ func _on_xnor_gate_button_pressed():
 
 func _on_not_gate_button_pressed():
 	create_gate(not_gate_scene)
+
+
+func _on_clear_button_pressed():
+	clear.emit()

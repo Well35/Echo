@@ -172,3 +172,13 @@ func instantiate_tile(tile_color: Color, tile_text: String):
 	tile.rect_color = tile_color
 	tile.text = tile_text
 	return tile
+
+
+func _on_ui_clear():
+	for gate in $Gates.get_children():
+		gate.queue_free()
+	for input in $Inputs.get_children():
+		input.queue_free()
+	for wire in $Wires.get_children():
+		wire.queue_free()
+	Globals.input_pins = 0

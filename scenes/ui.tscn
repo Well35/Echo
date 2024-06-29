@@ -163,6 +163,16 @@ Circuit"
 
 [node name="HelpPopup" parent="." instance=ExtResource("4_6hw8n")]
 
+[node name="ClearButton" type="Button" parent="."]
+anchors_preset = -1
+anchor_top = 0.937
+anchor_right = 0.069
+anchor_bottom = 1.0
+offset_top = 0.359985
+offset_right = 0.0599899
+grow_vertical = 0
+text = "Clear"
+
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/InputNodeButton" to="." method="_on_input_node_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/AndGateButton" to="." method="_on_and_gate_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer/OrGateButton" to="." method="_on_or_gate_button_pressed"]
@@ -172,3 +182,4 @@ Circuit"
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/XorGateButton" to="." method="_on_xor_gate_button_pressed"]
 [connection signal="pressed" from="VBoxContainer/HBoxContainer2/XnorGateButton" to="." method="_on_xnor_gate_button_pressed"]
 [connection signal="pressed" from="EvaluateButton" to="." method="_on_evaluate_button_pressed"]
+[connection signal="pressed" from="ClearButton" to="." method="_on_clear_button_pressed"]
