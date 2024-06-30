@@ -75,7 +75,7 @@ text = "1. Add logic gates and input pins by clicking the buttons below
 
 3. Wire them up by clicking on the input/output buttons on each logic gate (an input button must be connected to an output button)
  
-4. Delete a gate or a wire using right click
+4. Delete a gate or a wire using right click, or by pressing clear
 
 5. Press the evaluate circuit button in the bottom right to view the truth table of your completed circuit"
 autowrap_mode = 2
