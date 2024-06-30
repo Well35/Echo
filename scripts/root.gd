@@ -106,7 +106,7 @@ func evaluate():
 func check_wires():
 	for gate in gates:
 		if not gate.is_not_gate:
-			if not gate.input_button2.has_wire:
+			if not gate.input_button2.has_wire or not gate.input_button1.has_wire:
 				return false
 		else:
 			if not gate.input_button1.has_wire or not gate.output_button.has_wire:

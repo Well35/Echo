@@ -11,9 +11,9 @@ var selected: bool = false
 var evaluated: bool = false
 var has_both_inputs: bool = false
 var is_not_gate: bool = false
-@onready var output_button = $Output/OutputButton
-@onready var input_button1 = $Input/InputButton1
-var input_button2
+@onready var output_button: Button = $Output/OutputButton
+@onready var input_button1: Button = $Input/InputButton1
+var input_button2: Button
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("interact"):

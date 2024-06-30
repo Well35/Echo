@@ -1,11 +1,10 @@
 extends StaticBody2D
 
-@onready var output_button = $Button
+@onready var output_button: Button = $Button
 var selected: bool = false
 
 func _on_input_event(viewport, event, shape_idx):
 	if event.is_action_pressed("interact"):
-		print("selected")
 		selected = true
 
 func _on_button_pressed():
