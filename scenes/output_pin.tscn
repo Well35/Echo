@@ -29,10 +29,6 @@ color = Color(0.219608, 0.0352941, 0.0352941, 1)
 shape = SubResource("RectangleShape2D_4v4hv")
 
 [node name="Button" parent="." instance=ExtResource("2_g1a5c")]
-offset_left = -10.0
-offset_top = -10.0
-offset_right = 10.0
-offset_bottom = 10.0
 
 [node name="Label" type="Label" parent="."]
 offset_left = -21.0

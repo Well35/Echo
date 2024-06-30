@@ -2,6 +2,7 @@ extends Line2D
 
 var start_button: Button
 var end_button: Button
+var selected: bool
 
 @onready var rect: CollisionShape2D = $Area2D/CollisionShape2D
 var shape = RectangleShape2D.new()
