@@ -2,6 +2,10 @@
 
 A logic board simulation program that allows users to place/move any amount of logic gates and input pins, wire them up, and finally evaluate the circuit, generating a truth table.
 
+<p align="center">
+<img src="circuit_example.png">
+</p>
+
 ## Getting Started
 
 ### Prerequisites
